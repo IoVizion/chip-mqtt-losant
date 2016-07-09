@@ -1,7 +1,8 @@
 var five = require('johnny-five');
 var ChipIO = require('chip-io');
 var Device = require('losant-mqtt').Device;
-var os = require("os");
+var os = require('os');
+var credentials = require('./credentials.json');
 
 console.log('OS Hostname: ' + os.hostname());
 console.log('endianness : ' + os.endianness());
@@ -12,11 +13,7 @@ console.log('free memory : ' + os.freemem() + " bytes.");
 
 
 // Construct Losant device.
-var device = new Device({
-  id: '577e76749623b80100e3b25e',
-  key: '746b3247-9a21-4914-80c8-840a89b6c2b8',
-  secret: 'c4fcb4384a47e9fd2a885ed095d54634437040e7722b3897fedca7c8529fed33'
-});
+var device = new Device(credentials);
 
 // Connect the device to Losant.
 device.connect();
