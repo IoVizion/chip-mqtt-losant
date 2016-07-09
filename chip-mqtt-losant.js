@@ -19,7 +19,8 @@ var device = new Device(credentials);
 device.connect();
 
 var board = new five.Board({
-  io: new ChipIO()
+  io: new ChipIO(),
+  repl: false
 });
 
 const UPDATEINTERVAL = 5000
